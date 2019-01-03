@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+	  <title>Exerceise - (Danyao Wang)</title>
+	 <meta charset = "utf-8">
+	</head>
+	<body>
+<!-- Exercise 1 -->
+<script>
+	var answer = prompt("What is your first name?");
+	alert("Welcome to JavaScript, " + answer);
+	document.write("<h3>"+answer + " is a CST8285 student.</h3>");
+</script>
+
+<!-- Exercise 2 -->
+<script>
+	 var answer = prompt("Please enter a number");
+	 alert(parseInt(answer));
+</script>
+
+<!-- Exercise 3 -->
+<script>
+	  var answer = prompt("Please enter a number");
+	  alert(parseFloat(answer));
+</script>
+
+<!-- Exercise 4 -->
+<script>
+	   //Single line comment in JavaScript
+	   var answer = prompt("Please enter a number");
+	   /*
+	     Multiple
+             Line
+             Comment
+	     In JavaScript
+	   */
+	       if(isNaN(parseFloat(answer))){
+		  alert(parseFloat(answer));
+	       }else{
+		 alert(answer + " is a number");
+	       }
+</script>
+
+<!-- Exercise 5 -->
+<script>
+	   //Single line comment in JavaScript
+	    var answer = prompt("Please enter a number");
+	   /*
+	     Multiple
+	     Line
+	     Comment
+	     In JavaScript
+	   */
+	     if(isNaN(parseFloat(answer))){
+		do
+	           {
+		      answer = prompt("You did not enter a number. Please enter a number.");
+		}while (isNaN(parseFloat(answer)));
+		      
+	      }
+		alert(answer + " is a number");
+</script>
+
+<!-- Exercise 6 -->
+<script>
+	        var answer1 = prompt("Please enter a first number");
+		    if(isNaN(parseFloat(answer1))){
+		        do
+			    {
+			         answer1 = prompt("You did not enter a number. Please enter a number.");
+			    }while (isNaN(parseFloat(answer1)));
+		      
+	        }
+			var answer2 = prompt("Please enter a second number");
+			if(isNaN(parseFloat(answer2))){
+		        do
+			    {
+			         answer2 = prompt("You did not enter a number. Please enter a number.");
+			    }while (isNaN(parseFloat(answer2)));
+		      
+	        }
+			if(answer1 == answer2){
+			   alert("The number are equal.");
+			}
+			
+			if(answer1 > answer2){
+			   alert(answer1 + " is greater than " + answer2);
+			 }else{
+			   alert(answer1 + "is less than or equal to " + answer2);
+			}
+</script>
+
+<!-- Exercise 7 -->
+<script>
+	        var answer1 = prompt("Please enter a first number");
+		    if(isNaN(parseFloat(answer1))){
+		        do
+			    {
+			         answer1 = prompt("You did not enter a number. Please enter a number.");
+			    }while (isNaN(parseFloat(answer1)));
+		      
+	        }
+			var answer2 = prompt("Please enter a second number");
+			if(isNaN(parseFloat(answer2))){
+		        do
+			    {
+			         answer2 = prompt("You did not enter a number. Please enter a number.");
+			    }while (isNaN(parseFloat(answer2)));
+		      
+	        }
+			if(answer1 == answer2){
+			   alert("The number are equal.");
+			}
+			
+			if(answer1 > answer2){
+			   alert(answer1 + " is greater than " + answer2);
+			 }else{
+			   alert(answer1 + "is less than or equal to " + answer2);
+			}
+</script>
+	</body>
+</html>

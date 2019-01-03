@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lab5 By Danyao Wang</title>
+	<meta charset="utf-8">
+
+	<script>
+		/*
+		Create a function that converts the the inputted temperture from Celsius to Fahrenheit: convertToFahrenheit.
+		The function should first display a prompt asking the user to enter a temperature as Celsius.
+		The value entered should be validated to ensure it is a number.
+		Then, the appropriate formula should be applied to the value to convert the
+		temperature. Finally, an alert should be displayed indicating the
+		temperature that they entered, and the converted temperature.
+		The function should be called when the appropriate button below is pressed.
+		*/
+		function convertToFahrenheit(){
+		  var tempC = prompt("Enter a Temperature in Celsius: ");
+		  if(isNaN(parseFloat(tempC))){
+		  do{
+		     tempC = prompt("You did not enter a number. Please enter a number.");
+		    }while(isNaN(parseFloat(tempC)));
+		 }
+		    var tempF = 1.8 * tempC + 32;
+		    alert("The temperatue in Celsius is " + tempC + "°C.  Coverted to Fahrenheit is " + parseFloat(tempF) + "°F.");
+		 }
+		 
+
+	</script>
+</head>
+
+<body>
+<h3>Lab 5 - Introduction to JavaScript</h3>
+    <table>
+        <tr>
+            <th>Temperature conversion</th>
+        </tr>
+        <tr>
+			<td><button onclick= "convertToFahrenheit()">Convert!</button></td>
+		</tr>
+    </table>
+</body>
+</html>

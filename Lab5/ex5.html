@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+	  <title>Exerceise 5- (Danyao Wang)</title>
+	 <meta charset = "utf-8">
+	</head>
+	<body>
+	   <h1>Exercise 5- First Encounter with JavaScript</h1>
+	   <script>
+	     //Single line comment in JavaScript
+	      var answer = prompt("Please enter a number");
+		  /*
+		  Multiple
+		  Line
+		  Comment
+		  In JavaScript
+		  */
+		  if(isNaN(parseFloat(answer))){
+		     do
+			 {
+			     answer = prompt("You did not enter a number. Please enter a number.");
+			  }while (isNaN(parseFloat(answer)));
+		      
+	        }
+			alert(answer + " is a number");
+		 </script>
+
+	</body>
+</html>
