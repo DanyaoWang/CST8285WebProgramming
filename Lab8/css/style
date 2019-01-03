@@ -1,0 +1,42 @@
+
+#main {
+background-color:#000000;
+margin-top: 10px;
+padding-top: 20px;
+border: 1px solid black;
+width: 900px;
+margin-left: auto;
+margin-right: auto;
+}
+
+fieldset{
+	margin-top:5px;
+	background-color: #000000;
+}
+legend {
+	color: #000000;
+	background-color: #FAFAFA;
+	border: 1px solid #200772;
+	padding: 2px;
+	font-weight: bold;
+}
+table{
+	margin : 2px;
+	padding: 5px;
+}
+
+th{
+	color:#FAFAFA;
+	font-size: large;
+	text-align:left;
+}
+h1,td{
+	padding: 3px;
+	color:#FAFAFA;
+}
+.center{
+	text-align:center;
+}
+.required{
+	color:#FF0000;
+}
