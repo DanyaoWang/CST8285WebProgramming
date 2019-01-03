@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CST8285 - Week 6 Bonus Assignment</title>
+	<link rel="stylesheet" type="text/css" href="https://brightspace.algonquincollege.com/shared/css/canvas-bs.css"><script type="text/javascript">function lti_launch( vars ) { var query = ''; for(var key in vars) { if(query.length == 0) { query += '?' + key + '=' + encodeURIComponent(vars[key]); } else { query += '&' + key + '=' + encodeURIComponent(vars[key]); } } location.replace( '/d2l/customization/pearsonlti/6606/Launch' + query ); }</script><script type="text/javascript" src="/d2l/common/math/MathML.js?v=10.8.5.12965-31" ></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { D2LMathML.DesktopInit('https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=MML_HTMLorMML','https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML%2cSafe'); });</script><script type="text/javascript">window.addEventListener('message', function(event) { 
+					if( !event.data ) {
+						console.debug( 'Empty event received' );
+						return;
+					}
+					var params = JSON.parse(event.data);
+					if( !params.subject || params.subject !== 'lti.frameResize') {
+						console.debug( 'Message subject was not lti.frameResize' );
+						return;
+					}
+			
+					const MAX_FRAME_HEIGHT = 10000
+					if( !params.height || params.height < 1 || params.height > MAX_FRAME_HEIGHT ) {
+						console.warn( 'Invalid height value received, aborting' );
+						return;
+					}
+					var el = document.getElementsByTagName( 'iframe' );
+					for ( var i=0; i < el.length; i++ ) {
+						if( el[i].contentWindow === event.source ) {
+							el[i].style.height = params.height + 'px';
+                            el[i].style.width = '100%';
+							console.info( 'Setting iFrame height to ' + params.height );
+                            console.info( 'Setting iFrame width to 100%' );
+						}
+					}
+				});</script></head>
+	<body>
+		<h2>CST8285 Bonus Assignment</h2>
+		<p>This assignment is not mandatory, however I <em>highly suggest</em> that you attempt this assignment. The concepts used in this assignment will be used in later labs, so this is a good opportunity to try them out.<p>
+		<p>The purpose of this assignment is to use JavaScript to validate the fields in a form prior to the form being submitted. I <em>highly recommend</em> that you watch section 3 of the lynda.com course called <strong>Validating and Processing Forms with JavaScript and PHP</strong> prior to attempting this assignment. Also, Chapter 6 from the textbook provides an in depth look at how to use JavaScript to interact with forms.</p>
+		<p>There will be a lecture on this material after the midterm.</p>		
+		<h3>Instructions</h3>
+		<h4>1. Download the file Week6Bonus.zip from BlackBoard</h4>
+		<p>Please download and extract the Week6Bonus.zip file to the hard drive on your computer. Inside you will find a copy of the solution for Week 4's Lab (the registration form).</p>
+		<h4>2. Add a <code>&lt;script&gt;</code> element to the <code>&lt;head&gt;</code> element</h4>
+		<p>This is where you will put your form validation code</p>
+		<h4>3. Create a function called <code>validateForm()</code>.</h4>
+		<h4>4. Using JavaScript, add code the the <code>validateForm()</code> function to validate the form values.</h4>
+		<p>Write some code that will validate the form is submitted, and inform the user about what needs to be changed. You are free to choose how you want to inform the user. You may use an alert, or a hidden <code>&lt;div</code> beside each form field that appears when there are errors, or any way you desire.</p>
+		<p>Your code should check the following on the form:</p>
+		<ol>
+			<li>Verify that all of the required text boxes have some text in them.</li>
+			<li>Verify that the user has picked a province in the dropdown box.</li>
+			<li>Verify that the value in the credit card number is actually a number, and that it is greater than or equal to 15 characters. If you are feeling really adventurous, you can verify that if they select Visa or MasterCard, that the length of the credit card number is 16 digits, but if they select AMEX, that the length is 15 characters.</li>
+			<li>Verify that the 'Agree to terms' checkbox has been checked.
+			
+		</ol>
+		<h4>5. Upload the project to a folder called <code>Week6Bonus</code> in your webspace.</h4>
+		<p>Create a folder called <code>Week6Bonus</code> in your webspace. Upload all of the assignment files, including the <code>images</code> and <code>css</code> folders.</p>
+		<h4>6. Blackboard Submission</h4>
+		<p>Submit your webspace's Week6Bonus.html URL to Blackboard's dropbox.  TEST TO MAKE SURE YOUR URL WORKS AND THE PAGE DISPLAYS CORRECTLY.</p>
+		<h3>Grading</h3>
+		<p>Your submission will be graded as a pass/fail. If you pass (meaning that all the validations in step 4 work), you will have one point added to your lowest scoring lab. If you have 100% on your labs so far, in the event that you have a lab in the future that does not get 100%, it will be awarded then. If you get 100% on all of your labs, it will be awarded to your lowest scoring quiz. If you have 100% on all of your labs and quizzes, then you are not in need of a bonus mark. Instead, I will buy you a donut. Or some other sort of baked treat.</p>
+		
+		<h2>Good Luck!</h2>
+	</body>
+</html>
