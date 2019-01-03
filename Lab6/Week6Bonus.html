@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registration Form</title>
+		<meta charset="utf-8">
+		<link href="css/style.css" rel="stylesheet">
+		
+		<script>
+				function validateForm(){
+					var a = document.getElementById("firstName").value;
+					var b = document.getElementById("lastName").value;
+					var c = document.getElementById("address").value;
+					var d = document.getElementById("city").value;
+					var e = document.getElementById("province").value;
+					var f = document.getElementById("postalCode").value;
+					var g = document.getElementById("emailAddress").value;
+					var h = document.getElementById("homePhone").value;
+					
+					
+					if( a === "" ){
+						alert( "First name must be filled out");
+					return false;
+					}
+					if( b === "" ){
+						alert( "Last name must be filled out");
+					return false;
+					}
+					if( c === "" ){
+						alert( "Address must be filled out");
+					return false;
+					}
+					if( d === "" ){
+						alert( "City must be filled out");
+					return false;
+					}
+					if( e === "Select a province" ){
+						alert( "Province must be filled out");
+					return false;
+					}
+					if( f === "" ){
+						alert( "Postal code must be filled out");
+					return false;
+					}
+					if( g === "" ){
+						alert( "Email address must be filled out");
+					return false;
+					}
+					if( h === "" ){
+						alert( "Home phone must be filled out");
+					return false;
+					}
+					
+					var bType = false;
+					var m = document.getElementsByName("creditCardType");
+					for(var i=0;i< m.length;i++){
+					if(m[i].checked){
+						bType = true;
+						break;
+						}
+					}
+					if(bType == false){
+							alert("Credit card type must be chose");
+							return false;
+							}
+								
+					var x = document.getElementById("creditCardNumber").value;
+					if(isNaN(x)){
+						alert("The input for credit card number is not required type");
+						return false;
+						}
+					
+					if(x.length < 15){
+						alert("Card number must be greater than 15 characters");
+						return false;
+						}
+						
+					var j = document.getElementById("expiryMonth").value;
+					if( j === "" ){
+						alert( "Expire day must be filled out");
+					return false;
+					}
+					
+					var z = document.getElementById("agreeToTerms");
+					if(z.checked){
+						return true;
+						}else{
+							alert("agree to terms is not chosen");
+							return false;
+						}
+					
+				}
+		
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				<h1 class="center">Registration</h1>
+				<p class="center">Please enter the following information. Fields marked with an asterisk (<span class="required">*</span>) are required.</p>
+			</header>
+			<div id="content">
+			<form name="registrationForm" id="registrationForm" method="post" action="javascript:void(0);" onsubmit="return validateForm()">
+				<fieldset>
+					<legend>Personal Information</legend>
+					<table>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="firstName">First Name:</label>
+							</td>
+							<td>
+								<input type="text" name="firstName" id="firstName">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="lastName">Last Name:</label>
+							</td>
+							<td>
+								<input type="text" name="lastName" id="lastName">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="address">Address:</label>
+							</td>
+							<td>
+								<input type="text" name="address" id="address" size="40">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="city">City:</label>
+							</td>
+							<td>
+								<input type="text" name="city" id="city">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="province">Province:</label>
+							</td>
+							<td>
+								<select name="province" id="province" size="1">
+									<option>Select a province</option>
+									<option value="BC">British Columbia</option>
+									<option value="AB">Alberta</option>
+									<option value="SK">Saskatchewan</option>
+									<option value="MB">Manitoba</option>
+									<option value="ON">Ontario</option>
+									<option value="QC">Québec</option>
+									<option value="NB">New Brunswick</option>
+									<option value="NS">Nova Scotia</option>
+									<option value="PE">Prince Edward Island</option>
+									<option value="NF">Newfoundland</option>
+									<option value="YK">Yukon</option>
+									<option value="NWT">Northwest Territories</option>
+									<option value="NU">Nunavut</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="required">*</span><label for="postalCode">Postal Code:</label>
+							</td>
+							<td>
+								<input type="text" name="postalCode" id="postalCode" maxlength="6">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="emailAddress">Email address:</label></td>
+							<td><input type="text" name="emailAddress" id="emailAddress"></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="homePhone">Home Phone:</label></td>
+							<td><input type="text" name="homePhone" id="homePhone"></td>
+						</tr>
+						<tr>
+							<td><label for="workPhone">Work Phone:</label></td>
+							<td><input type="text" name="workPhone" id="workPhone"></td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<legend>Payment Information</legend>
+					<table>
+						<tr>
+							<td><span class="required">*</span><label>Credit Card Type:</label></td>
+							<td>
+								<img src="images/visa.png" alt="visa" title="Visa Credit Card"><input type="radio" name="creditCardType" id="creditCardTypeVisa" value="visa">
+								<img src="images/mastercard.png" alt="MasterCard" title="MasterCard Credit Card"><input type="radio" name="creditCardType" id="creditCardTypeMasterCard" value="masterCard">
+								<img src="images/amex.png" alt="AMEX" title="American Express Credit Card"><input type="radio" name="creditCardType" id="creditCardTypeAmex" value="amex">
+							</td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label for="creditCardNumber">Credit Card Number</label></td>
+							<td><input type="text" name="creditCardNumber" id="creditCardNumber"></td>
+						</tr>
+						<tr>
+							<td><span class="required">*</span><label>Expiry(MM/YY)</label></td>
+							<td><input type="text" name="expiryMonth" id="expiryMonth" maxlength="5">
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<legend>Agree and Submit</legend>
+					<table>
+						<tr>
+							<td>Check if you agree with our Terms and Conditions</td>
+							<td><input type="checkbox" name="agreeToTerms" id="agreeToTerms" value="yes"></td>
+						</tr>
+						<tr>
+							<td><input type="submit" name="btnSubmit" id="btnSubmit" value="Submit Registration"></td>
+							<td><input type="reset" name="btnReset" id="btnReset" value="Reset Form"></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+			</div><!-- End Content -->
+			<footer>	
+				<p>&copy;2013 CST8285. All rights reserved.</p>
+			</footer>
+		</div><!-- End Wrapper -->
+	</body>
+</html>
