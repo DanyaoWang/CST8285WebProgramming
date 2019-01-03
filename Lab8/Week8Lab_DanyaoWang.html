@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Week 8 Lab - JavaScript DOM and Arrays</title>
+        <meta charset="utf-8">
+			<link rel="stylesheet" href="CSS/style.css" type="text/css" /> 
+		<script>
+		function validateForm(){
+			var a = document.forms["orderForm"]["firstName"].value;
+			var b = document.forms["orderForm"]["lastName"].value;
+			var c = document.forms["orderForm"]["address"].value;
+			var d = document.forms["orderForm"]["city"].value;
+			var e = document.forms["orderForm"]["province"].value;
+			var f = document.forms["orderForm"]["postalCode"].value;
+			if( a == "" ){
+				alert( "First name must be filled out");
+			return false;
+			}
+			if( b == "" ){
+				alert( "Last name must be filled out");
+			return false;
+			}
+			if( c == "" ){
+				alert( "Address must be filled out");
+			return false;
+			}
+			if( d == "" ){
+				alert( "City must be filled out");
+			return false;
+			}
+			if( e == "" ){
+				alert( "Province must be filled out");
+			return false;
+			}
+			if( f == "" ){
+				alert( "Postal code must be filled out");
+			return false;
+			}
+			var x = document.forms["orderForm"]["postalCode"].value;
+			if (x.length != 6){
+			alert("postal code must contain 6 characters.");
+			return false;
+			}
+			var y1 = document.forms["orderForm"]["widget1qty"].value;
+			var y2 = document.forms["orderForm"]["widget2qty"].value;
+			var y3 =document.forms["orderForm"]["widget3qty"].value;
+			var Y = [y1,y2, y3];
+			for(var i =0;i<Y.length;i++){
+				if(Y[i] < 0){
+					alert("widget#" +(i+1) + " quantity must be greater or equals to 0.");
+					return false;
+				}
+			}
+			if(y1 == 0 && y2 == 0 && y3 == 0){
+				alert("you have to order at least one item.");
+				return false;
+			}
+			var ip = "";
+			var rPort = document.getElementsByName("shippingType");
+			for(var i =0; i<rPort.length;i++){
+				if(rPort[i].checked)
+				ip=rPort[i].value;
+			}
+				alert("total price is " + (5*y1+15*y2+25*y3+parseInt(ip)));
+				
+			
+		}
+		</script>
+		
+
+    </head>
+    <body>
+		<div id="main">
+			<header>
+			<h1 class = "center">Form</h1>
+			</header>
+			
+			
+			<form name="orderForm" method="post"  action="processForm.html" onsubmit= "return validateForm()">
+			<fieldset>
+			
+			<legend>Personal Information</legend>
+			
+			<table>
+            
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="firstName" id="firstName" size="30"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lastName"  id="lastName" size="30"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address" id="address" size="30"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" id="city" size="30"></td>
+            </tr>
+            <tr>
+                <td>Province:</td>
+                <td><select name="province"  id="province" size="1">
+                        <option disabled>Select a province</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AB">Alberta</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Québec</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="NF">Newfoundland</option>
+                        <option value="YK">Yukon</option>
+                        <option value="NWT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Postal Code:</td>
+                <td><input type="text" name="postalCode" id="postalCode" maxlength="6"></td>
+            </tr>
+			</table>
+			</fieldset>
+			
+			<fieldset>
+			
+			<legend>Order Information</legend>
+			
+			<table>
+            
+            <tr>
+                <td rowspan="3"><strong>Select your products:</strong><br>
+                    <span id="productError" class="errorMessage" hidden></span></td>
+                <td>Widget #1&nbsp;
+                    <input type="text" name="widget1qty" id="widget1qty" size="1" value="0">Qty @ <span class="required"><strong>$5.00/ea</strong></span></td>
+            </tr>
+            <tr>
+                <td>Widget #2&nbsp;
+                    <input type="text" name="widget2qty" id="widget2qty" size="1" value="0">Qty @ <span class="required"><strong>$15.00/ea</strong></span></td>
+            </tr>
+            <tr>
+                <td>Widget #3&nbsp;
+                    <input type="text" name="widget3qty" id="widget3qty" size="1" value="0">Qty @ <span class="required"><strong>$25.00/ea</strong></span></td>
+            </tr>
+			
+            <tr>
+                <td rowspan="3"><strong>Shipping Type:</strong></td>
+                <td>Standard (<span class="required"><strong>$5.00</strong></span>)<input type="radio" name="shippingType" id="shippingTypeStandard" value="5Standard" checked></td>
+
+            </tr>
+            <tr>
+                <td>Express (<span class="required"><strong>$10.00</strong></span>)<input type="radio" name="shippingType" id="shippingTypeExpress" value="10Express"></td>
+            </tr>
+            <tr>
+                <td>Overnight (<span class="required"><strong>$20.00</strong></span>)<input type="radio" name="shippingType" id="shippingTypeOvernight" value="20Overnight"></td>
+            </tr>
+			</table>
+		</fieldset>
+			
+			<fieldset>
+			
+			<legend>Submit Order</legend>
+			<table>
+            
+            <tr>
+                <td><input type="submit" name="btnSubmit" id="btnSubmit" value="Submit Order"></td>
+                <td><input type="reset" name="btnReset" id="btnReset" value="Reset Form"></td>
+            </tr>
+        </table>
+		</fieldset>
+        </form>
+		</div>
+    </body>
+</html>
